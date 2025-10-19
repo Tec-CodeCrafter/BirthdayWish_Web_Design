@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Happy Birthday Dikshuuu 🎉</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: radial-gradient(circle at top left, #ffe6f0, #ffb3d9, #ff99cc);
+    color: #4a0033;
+    text-align: center;
+    overflow-x: hidden;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+  }
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    margin: 30px 0;
+    color: #ff5ca4;
+    text-shadow: 0 0 15px #fff, 0 0 25px #ff9ad6;
+  }
+  .message {
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(255,105,180,0.4);
+    display: inline-block;
+    padding: 20px;
+    margin: 20px auto;
+    backdrop-filter: blur(10px);
+    max-width: 90%;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+  }
+  .message h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .message p {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
+  .signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.3rem, 4vw, 1.5rem);
+    margin-top: 10px;
+    color: #d63384;
+    text-align: right;
+  }
+  button {
+    font-family: 'Nunito', sans-serif;
+    font-size: clamp(16px, 4vw, 18px);
+    background-color: #ff70b3;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: clamp(8px, 2vw, 12px) clamp(18px, 4vw, 25px);
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 18px;
+    box-shadow: 0 4px 15px rgba(255,105,180,0.5);
+  }
+  button:hover { background-color: #ff3f96; transform: scale(1.05); }
+  .glow-text {
+    font-style: italic;
+    color: #e85b9e;
+    opacity: 0;
+    animation: fadeInGlow 2s ease-in-out forwards;
+  }
+  @keyframes fadeInGlow {
+    0% { opacity: 0; text-shadow: 0 0 2px #e85b9e; }
+    50% { opacity: 0.8; text-shadow: 0 0 8px #ff8ad1, 0 0 12px #ffb4e4; }
+    100% { opacity: 1; text-shadow: 0 0 10px #ff8ad1, 0 0 20px #ffb4e4; }
+  }
+  #lastBtnContainer { display: none; margin-top: 20px; }
+
+  /* Heart animation styles */
+  .heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff5ca4;
+    transform: rotate(-45deg);
+    animation: floatUp linear infinite;
+    z-index: 0;
+  }
+  .heart::before,
+  .heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff5ca4;
+    border-radius: 50%;
+  }
+  .heart::before {
+    top: -10px;
+    left: 0;
+  }
+  .heart::after {
+    left: 10px;
+    top: 0;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(-45deg); opacity: 1; }
+    100% { transform: translateY(-120vh) rotate(-45deg); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Happy Birthday Dikshuuu 🎉💖✨</h1>
+
+<div class="message" id="messageBox" style="display:none;">
+  <h2>H A P P Y&nbsp;&nbsp;&nbsp;B I R T H D A Y&nbsp;&nbsp;&nbsp;D I K S H U U U...</h2>
+  <p id="messageText"></p>
+  <div class="signature">— From Your Cutie😉</div>
+</div>
+
+<button id="revealBtn">Reveal Message 💌</button>
+
+<div id="lastBtnContainer">
+  <button id="lastMsgBtn">Special Last Message 💌</button>
+</div>
+
+<div class="message" id="lastMessageBox" style="display:none;">
+  <p id="lastMessageText" class="glow-text"></p>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_b9d1e8eac7.mp3?filename=birthday-song-110293.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const revealBtn = document.getElementById('revealBtn');
+const messageBox = document.getElementById('messageBox');
+const messageText = document.getElementById('messageText');
+const bgMusic = document.getElementById('bgMusic');
+
+const message = `On this special day, I want to tell my gorgeous, super-duper talented, a little bit cute, completely crazy, and always my number 1 priority bestie… aapka bohot bohot dhanyavaad meri badi si life mein aane ke liye, aur aake usme hungama machane ke liye! 😜
+
+I’m veryyyyyyyy veryyyyyyyy lucky to have you in my life, Dikshu ❤️
+I wish from the bottom of my heart that you always stay happy and continue shining bright.🌟 — but but but, agar kabhi kuch hota bhi hai, toh mai hoon na 😌
+
+Just give me a call — agar utha liya to bohot acchi baat 😆 aur agar nahi uthaya to shayad thoda busy hounga 🤧🤣
+…Mazak kar raha tha 😌 — pakka uthunga!`;
+
+const lastBtnContainer = document.getElementById('lastBtnContainer');
+const lastMsgBtn = document.getElementById('lastMsgBtn');
+const lastMessageBox = document.getElementById('lastMessageBox');
+const lastMessageText = document.getElementById('lastMessageText');
+
+const specialLastMessage = `From the straight of my heart, yaar, I feel so lucky that tujh jysi crazy girl ne meri life mai entry maari. The day we met for the first time was such a lucky day for me. Seriously yaar, I'm the luckiest person! But admit it ...... you're lucky too to have a friend like me! 😜💖`;
+
+// Reveal main message
+function revealMessageFunc() {
+  revealBtn.disabled = true;
+  messageBox.style.display = 'block';
+  messageBox.style.opacity = 0;
+  messageBox.style.transition = 'opacity 1.5s ease';
+  setTimeout(()=>{ messageBox.style.opacity = 1; }, 100);
+
+  let index = 0;
+  messageText.textContent = "";
+  const typeInterval = setInterval(()=>{
+    messageText.textContent += message[index];
+    index++;
+    if(index >= message.length){
+      clearInterval(typeInterval);
+    }
+  }, 35);
+
+  bgMusic.play();
+
+  // Show last message button after 5s
+  setTimeout(()=>{
+    lastBtnContainer.style.display = 'block';
+    lastBtnContainer.style.opacity = 0;
+    lastBtnContainer.style.transition = 'opacity 1s ease';
+    setTimeout(()=>lastBtnContainer.style.opacity = 1, 100);
+  }, 5000);
+}
+
+revealBtn.addEventListener('click', revealMessageFunc);
+
+// Reveal special last message
+lastMsgBtn.addEventListener('click', ()=>{
+  lastMsgBtn.disabled = true;
+  lastMessageBox.style.display = 'block';
+  lastMessageText.textContent = specialLastMessage;
+});
+
+// Heart animation
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.width = heart.style.height = (10 + Math.random() * 20) + 'px';
+  heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+  heart.style.opacity = Math.random();
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 10000);
+}
+
+// Create hearts continuously
+setInterval(createHeart, 300);
+</script>
+</body>
+</html>
